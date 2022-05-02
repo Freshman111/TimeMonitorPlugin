@@ -1,0 +1,43 @@
+plugins {
+    id 'java-gradle-plugin'
+    id 'maven-publish' // maven 仓库
+    id 'groovy' // groovy 支持
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation gradleApi()
+    implementation localGroovy()
+
+    implementation 'com.android.tools.build:gradle:3.4.2'
+
+    implementation 'org.ow2.asm:asm:9.1'
+    implementation 'org.ow2.asm:asm-commons:9.1'
+}
+
+group='com.sgffsg.example.asm.plugin'
+version='1.0.0'
+
+//uploadArchives {
+//    repositories {
+//        mavenDeployer {
+//            //本地的Maven地址设置
+//            repository(url: uri('../asm_plugin_repo'))
+//        }
+//    }
+//}
+
+publishing {
+    repositories {
+        maven {
+            url = uri("$rootDir/repo")
+        }
+    }
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
+}
