@@ -6,20 +6,24 @@ plugins {
 
 dependencies {
 
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
     implementation gradleApi()
     implementation localGroovy()
-
-    implementation 'com.android.tools.build:gradle:3.4.2'
 
     implementation 'org.ow2.asm:asm:9.1'
     implementation 'org.ow2.asm:asm-commons:9.1'
 }
 
-group='com.sgffsg.example.asm.plugin'
-version='1.0.0'
+//gradlePlugin {
+//    // Define the plugin
+//    plugins {
+//        customName {
+//            id = 'test-plugin'
+//            implementationClass = 'com.sgffsg.example.asm.MethodStatPlugin'
+//        }
+//    }
+//}
 
+//现在用的是maven-publish,这种方式不再支持
 //uploadArchives {
 //    repositories {
 //        mavenDeployer {
@@ -29,6 +33,43 @@ version='1.0.0'
 //    }
 //}
 
+// groupId
+group 'com.sgffsg.example.asm'
+// 发布版本
+version '1.1.0'
+
+//远端方式
+//publishing {
+//    println("------")
+//    //加载资源
+//    Properties properties = new Properties()
+//    InputStream inputStream = project.rootProject.file('local.properties').newDataInputStream()
+//    properties.load( inputStream )
+//
+//    //读取字段
+//    def key_keyUsrName = properties.getProperty( 'mavenUserName' )
+//    def key_keyPassword = properties.getProperty( 'mavenPwd' )
+//
+//    repositories {
+//        maven {
+//            url = 'https://packages.aliyun.com/maven/repository/2224047-release-Alqbwv/'
+//            credentials {
+//                it.username = key_keyUsrName
+//                it.password = key_keyPassword
+//            }
+//
+//        }
+//    }
+//    publications {
+//        maven(MavenPublication) {
+//            from components.java
+//        }
+//    }
+//
+//    println("---after---")
+//}
+
+//本地方式
 publishing {
     repositories {
         maven {
