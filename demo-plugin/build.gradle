@@ -11,6 +11,7 @@ dependencies {
 
     implementation 'org.ow2.asm:asm:9.1'
     implementation 'org.ow2.asm:asm-commons:9.1'
+    implementation 'com.android.tools.build:gradle:4.0.1'
 }
 
 //gradlePlugin {
@@ -36,7 +37,7 @@ dependencies {
 // groupId
 group 'com.sgffsg.example.asm'
 // 发布版本
-version '1.1.0'
+version '1.1.4'
 
 //远端方式
 //publishing {
